@@ -26,11 +26,11 @@ app.get("/api/hello", function(req, res) {
 });
 
 app.get('/api/whoami', (req, res) => {
-    res.json({
-        ipaddress: req.headers['x-forwarded-for'],
-        language: req.headers['accept-language'],
-        software: req.header('user-agent')
-    })
+    let responseObject = {}
+    responseObject['ipaddress'] = req.headers['x-forwarded-for']
+    responseObject['language'] = req.headers['accept-language']
+    responseObject['software'] = req.header('user-agent')
+    res.json(responseObject)
 })
 
 
